@@ -13,3 +13,4 @@ one degree. The diameter of the full moon is 30 arcminutes.
 * **Wavelength** -- this is the center wavelength of the observation, ranging from
 3.5 to 22 microns. For reference, the wavelength of yellow light is about 0.5 microns.
 
+The code is available [here on Github](https://github.com/stargaser/queryWise).
