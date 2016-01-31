@@ -15,16 +15,11 @@ shinyServer(
                                "&radunits=arcsec&objstr=",sprintf("%fd",myra),
                                sprintf("+%+fd",mydec), "&size=",sprintf("%d",mysize),
                                "&outfmt=1&selcols=ra,dec,w1mpro,w2mpro,w3mpro,w4mpro")
-            print(gatorUrl)
             irsa_result <- readLines(gatorUrl)
-            
             # Pull out the appropriate line
             data_lines <- irsa_result[grep("^ ", irsa_result)]
             df <- read.table(text=data_lines, col.names=c('ra','dec','clon','clat',
                                                           'mag3.5','mag4.5','mag12','mag22'))
-            print(head(df))
-            xlim <- c(min(df$ra),max(df$ra))
-            ylim <- c(min(df$dec),max(df$dec))
             if (myband ==4) {
                 mymag <- df$mag22
                 myname <- "22 microns"
@@ -51,6 +46,5 @@ shinyServer(
             
        
         })
-        #text(63, 150, gatorUrl)
     }
 )
